@@ -1,8 +1,10 @@
-package rasp.robo.listener;
+package robo.sensor.sound;
 
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SoundListener implements GpioPinListenerDigital {
 
     @Override
