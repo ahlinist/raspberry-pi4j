@@ -1,4 +1,4 @@
-package robo.sensor.sound
+package sensor.sound
 
 import com.pi4j.io.gpio.GpioController
 import com.pi4j.io.gpio.GpioPinDigitalInput

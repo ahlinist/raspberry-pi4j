@@ -1,4 +1,4 @@
-package robo.sensor;
+package sensor;
 
 public interface Sensor {
 

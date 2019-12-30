@@ -1,23 +1,21 @@
-package robo
-
 import org.springframework.boot.ApplicationArguments
-import robo.sensor.sound.SoundSensor
+import robot.Robot
 import spock.lang.Specification
 import spock.lang.Subject
 
 class RoboApplicationSpec extends Specification {
 
-    SoundSensor soundSensor = Mock SoundSensor
+    Robot robot = Mock Robot
 
     @Subject
-    RoboApplication roboApplication = new RoboApplication(soundSensor)
+    RoboApplication roboApplication = new RoboApplication(robot)
 
     def "test app run"() {
         when:
         roboApplication.run(_ as ApplicationArguments)
 
         then:
-        1 * soundSensor.init()
+        1 * robot.init()
         0 * _
     }
 }

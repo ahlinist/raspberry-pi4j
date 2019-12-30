@@ -1,4 +1,4 @@
-package robo.configuration;
+package configuration;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ControllerConfiguration {
 
     @Bean
-    public GpioController getController() {
+    public GpioController controller() {
         return GpioFactory.getInstance();
     }
 }
