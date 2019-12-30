@@ -14,6 +14,8 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: ./gradlew build
-    - name: Publish a package
-      run: ./gradlew publish
+      run: ./gradlew bootJar
+    - uses: actions/upload-artifact@v1
+      with:
+        name: '*'
+        path: build/libs
