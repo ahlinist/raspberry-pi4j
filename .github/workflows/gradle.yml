@@ -17,5 +17,5 @@ jobs:
       run: ./gradlew bootJar
     - uses: actions/upload-artifact@v1
       with:
-        name: '*'
+        name: robo-app.zip
         path: build/libs
