@@ -1,10 +1,10 @@
-package sensor.sound;
+package robot.sensor.sound;
 
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import sensor.Sensor;
+import robot.sensor.Sensor;
 
 @Component
 @RequiredArgsConstructor

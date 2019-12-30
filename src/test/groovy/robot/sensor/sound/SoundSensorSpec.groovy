@@ -1,4 +1,4 @@
-package sensor.sound
+package robot.sensor.sound
 
 import com.pi4j.io.gpio.GpioController
 import com.pi4j.io.gpio.GpioPinDigitalInput
@@ -23,7 +23,7 @@ class SoundSensorSpec extends Specification {
         soundSensor.init()
 
         then:
-        1 * gpioController.provisionDigitalInputPin(RaspiPin.GPIO_02,"Sound sensor input", PinPullResistance.PULL_DOWN) >> soundSensorInput
+        1 * gpioController.provisionDigitalInputPin(RaspiPin.GPIO_02, "Sound sensor input", PinPullResistance.PULL_DOWN) >> soundSensorInput
         1 * soundSensorInput.addListener(soundListener)
         0 * _
     }

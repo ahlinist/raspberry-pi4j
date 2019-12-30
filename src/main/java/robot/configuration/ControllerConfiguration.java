@@ -1,4 +1,4 @@
-package configuration;
+package robot.configuration;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;

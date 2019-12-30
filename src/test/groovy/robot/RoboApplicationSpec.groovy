@@ -1,5 +1,6 @@
+package robot
+
 import org.springframework.boot.ApplicationArguments
-import robot.Robot
 import spock.lang.Specification
 import spock.lang.Subject
 

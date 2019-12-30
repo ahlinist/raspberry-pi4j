@@ -1,6 +1,6 @@
 package robot
 
-import sensor.sound.SoundSensor
+import robot.sensor.sound.SoundSensor
 import spock.lang.Specification
 import spock.lang.Subject
 

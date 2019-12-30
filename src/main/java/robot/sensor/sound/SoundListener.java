@@ -1,4 +1,4 @@
-package sensor.sound;
+package robot.sensor.sound;
 
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
