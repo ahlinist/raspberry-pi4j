@@ -24,6 +24,5 @@ public class RoboApplication implements ApplicationRunner {
 	public void run(ApplicationArguments args) {
 		System.out.println("Starting app...");
 		robot.init();
-		Thread.currentThread().join();
 	}
 }
