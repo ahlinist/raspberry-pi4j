@@ -1,7 +1,7 @@
 package robot.sensor.sound;
 
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import robot.sensor.Listener;
 
-public interface SoundListener extends GpioPinListenerDigital {
+public interface SoundListener extends Listener {
 
 }
