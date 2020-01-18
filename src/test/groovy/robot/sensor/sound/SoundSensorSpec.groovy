@@ -4,17 +4,17 @@ import com.pi4j.io.gpio.GpioController
 import com.pi4j.io.gpio.GpioPinDigitalInput
 import com.pi4j.io.gpio.PinPullResistance
 import com.pi4j.io.gpio.RaspiPin
-import com.pi4j.io.gpio.event.GpioPinListenerDigital
+import robot.sensor.sound.impl.SoundSensorImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
 class SoundSensorSpec extends Specification {
 
     GpioController gpioController = Mock GpioController
-    GpioPinListenerDigital soundListener = Mock GpioPinListenerDigital
+    SoundListener soundListener = Mock SoundListener
 
     @Subject
-    SoundSensor soundSensor = new SoundSensor(gpioController, soundListener)
+    SoundSensor soundSensor = new SoundSensorImpl(gpioController, soundListener)
 
     GpioPinDigitalInput soundSensorInput = Mock GpioPinDigitalInput
 
