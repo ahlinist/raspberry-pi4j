@@ -1,7 +1,6 @@
 package robot.sensor.sound;
 
 import com.pi4j.io.gpio.*;
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import robot.sensor.Sensor;
@@ -11,7 +10,7 @@ import robot.sensor.Sensor;
 public class SoundSensor implements Sensor {
 
     private final GpioController controller;
-    private final GpioPinListenerDigital soundListener;
+    private final SoundListener soundListener;
 
     @Override
     public void init() {
