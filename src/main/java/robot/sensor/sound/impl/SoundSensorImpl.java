@@ -12,7 +12,7 @@ import robot.sensor.sound.SoundSensor;
 public class SoundSensorImpl implements SoundSensor {
 
     private final Controller controller;
-    private final Runnable action;
+    private final SoundListenerAction action;
 
     @Override
     public void init() {

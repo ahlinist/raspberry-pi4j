@@ -12,7 +12,7 @@ import robot.sensor.distance.DistanceSensor;
 public class DistanceSensorImpl implements DistanceSensor {
 
     private final Controller controller;
-    private final Runnable action;
+    private final DistanceListenerAction action;
 
     @Override
     public void init() {

@@ -3,6 +3,7 @@ package robot.sensor.distance
 import robot.controller.Controller
 import robot.controller.Input
 import robot.controller.Listener
+import robot.sensor.distance.impl.DistanceListenerAction
 import robot.sensor.distance.impl.DistanceSensorImpl
 import spock.lang.Specification
 import spock.lang.Subject
@@ -10,7 +11,7 @@ import spock.lang.Subject
 class DistanceSensorSpec extends Specification {
 
     Controller controller = Mock Controller
-    Runnable action = Mock Runnable
+    DistanceListenerAction action = Mock DistanceListenerAction
 
     @Subject
     DistanceSensor distanceSensor = new DistanceSensorImpl(controller, action)
