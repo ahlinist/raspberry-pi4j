@@ -1,30 +1,31 @@
 package robot.sensor.sound
 
-import com.pi4j.io.gpio.GpioController
-import com.pi4j.io.gpio.GpioPinDigitalInput
-import com.pi4j.io.gpio.PinPullResistance
-import com.pi4j.io.gpio.RaspiPin
+import robot.controller.Controller
+import robot.controller.Input
+import robot.controller.Listener
 import robot.sensor.sound.impl.SoundSensorImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
 class SoundSensorSpec extends Specification {
 
-    GpioController gpioController = Mock GpioController
-    SoundListener soundListener = Mock SoundListener
+    Controller controller = Mock Controller
+    Runnable action = Mock Runnable
 
     @Subject
-    SoundSensor soundSensor = new SoundSensorImpl(gpioController, soundListener)
+    SoundSensor soundSensor = new SoundSensorImpl(controller, action)
 
-    GpioPinDigitalInput soundSensorInput = Mock GpioPinDigitalInput
+    Listener listener = Mock Listener
+    Input input = Mock Input
 
     def "test init"() {
         when:
         soundSensor.init()
 
         then:
-        1 * gpioController.provisionDigitalInputPin(RaspiPin.GPIO_02, "Sound sensor input", PinPullResistance.PULL_DOWN) >> soundSensorInput
-        1 * soundSensorInput.addListener(soundListener)
+        1 * controller.initListener(action) >> listener
+        1 * controller.initInput(2, "Sound sensor input") >> input
+        1 * input.addListener(listener)
         0 * _
     }
 }

@@ -1,30 +1,31 @@
 package robot.sensor.distance
 
-import com.pi4j.io.gpio.GpioController
-import com.pi4j.io.gpio.GpioPinDigitalInput
-import com.pi4j.io.gpio.PinPullResistance
-import com.pi4j.io.gpio.RaspiPin
+import robot.controller.Controller
+import robot.controller.Input
+import robot.controller.Listener
 import robot.sensor.distance.impl.DistanceSensorImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
 class DistanceSensorSpec extends Specification {
 
-    GpioController gpioController = Mock GpioController
-    DistanceListener distanceListener = Mock DistanceListener
+    Controller controller = Mock Controller
+    Runnable action = Mock Runnable
 
     @Subject
-    DistanceSensor distanceSensor = new DistanceSensorImpl(gpioController, distanceListener)
+    DistanceSensor distanceSensor = new DistanceSensorImpl(controller, action)
 
-    GpioPinDigitalInput distanceSensorInput = Mock GpioPinDigitalInput
+    Listener listener = Mock Listener
+    Input input = Mock Input
 
     def "test init"() {
         when:
         distanceSensor.init()
 
         then:
-        1 * gpioController.provisionDigitalInputPin(RaspiPin.GPIO_00, "Distance sensor input", PinPullResistance.PULL_DOWN) >> distanceSensorInput
-        1 * distanceSensorInput.addListener(distanceListener)
+        1 * controller.initListener(action) >> listener
+        1 * controller.initInput(0, "Distance sensor input") >> input
+        1 * input.addListener(listener)
         0 * _
     }
 }

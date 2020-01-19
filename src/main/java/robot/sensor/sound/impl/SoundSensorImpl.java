@@ -1,24 +1,24 @@
 package robot.sensor.sound.impl;
 
-import com.pi4j.io.gpio.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import robot.sensor.sound.SoundListener;
+import robot.controller.Controller;
+import robot.controller.Input;
+import robot.controller.Listener;
 import robot.sensor.sound.SoundSensor;
 
 @Component
 @RequiredArgsConstructor
 public class SoundSensorImpl implements SoundSensor {
 
-    private final GpioController controller;
-    private final SoundListener soundListener;
+    private final Controller controller;
+    private final Runnable action;
 
     @Override
     public void init() {
         System.out.println("Initializing a sound sensor");
-        GpioPinDigitalInput soundSensorInput = controller.provisionDigitalInputPin(RaspiPin.GPIO_02,
-                "Sound sensor input",
-                PinPullResistance.PULL_DOWN);
-        soundSensorInput.addListener(soundListener);
+        Listener listener = controller.initListener(action);
+        Input input = controller.initInput(2, "Sound sensor input");
+        input.addListener(listener);
     }
 }
