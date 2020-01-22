@@ -25,7 +25,7 @@ class DistanceSensorSpec extends Specification {
 
         then:
         1 * controller.initListener(action) >> listener
-        1 * controller.initInput(0, "Distance sensor input") >> input
+        1 * controller.initInput(0, "distance sensor") >> input
         1 * input.addListener(listener)
         0 * _
     }

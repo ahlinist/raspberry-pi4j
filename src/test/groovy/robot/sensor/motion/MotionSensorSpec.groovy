@@ -25,7 +25,7 @@ class MotionSensorSpec extends Specification {
 
         then:
         1 * controller.initListener(action) >> listener
-        1 * controller.initInput(1, "Motion sensor input") >> input
+        1 * controller.initInput(1, "motion sensor") >> input
         1 * input.addListener(listener)
         0 * _
     }

@@ -25,7 +25,7 @@ class SoundSensorSpec extends Specification {
 
         then:
         1 * controller.initListener(action) >> listener
-        1 * controller.initInput(2, "Sound sensor input") >> input
+        1 * controller.initInput(2, "sound sensor") >> input
         1 * input.addListener(listener)
         0 * _
     }

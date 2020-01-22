@@ -1,24 +1,17 @@
 package robot.sensor.distance.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import robot.controller.Controller;
-import robot.controller.Input;
-import robot.controller.Listener;
+import robot.sensor.AbstractSensor;
 import robot.sensor.distance.DistanceSensor;
 
 @Component
-@RequiredArgsConstructor
-public class DistanceSensorImpl implements DistanceSensor {
+public class DistanceSensorImpl extends AbstractSensor implements DistanceSensor {
 
-    private final Controller controller;
-    private final DistanceListenerAction action;
+    private static final String NAME = "distance sensor";
+    private static final int PIN_NUMBER = 0;
 
-    @Override
-    public void init() {
-        System.out.println("Initializing a distance sensor");
-        Listener listener = controller.initListener(action);
-        Input input = controller.initInput(0, "Distance sensor input");
-        input.addListener(listener);
+    public DistanceSensorImpl(Controller controller, DistanceListenerAction action) {
+        super(controller, action, NAME, PIN_NUMBER);
     }
 }

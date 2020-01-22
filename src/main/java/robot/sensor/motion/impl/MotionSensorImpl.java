@@ -1,24 +1,17 @@
 package robot.sensor.motion.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import robot.controller.Controller;
-import robot.controller.Input;
-import robot.controller.Listener;
+import robot.sensor.AbstractSensor;
 import robot.sensor.motion.MotionSensor;
 
 @Component
-@RequiredArgsConstructor
-public class MotionSensorImpl implements MotionSensor {
+public class MotionSensorImpl extends AbstractSensor implements MotionSensor {
 
-    private final Controller controller;
-    private final MotionListenerAction action;
+    private static final String NAME = "motion sensor";
+    private static final int PIN_NUMBER = 1;
 
-    @Override
-    public void init() {
-        System.out.println("Initializing a motion sensor");
-        Listener listener = controller.initListener(action);
-        Input input = controller.initInput(1, "Motion sensor input");
-        input.addListener(listener);
+    public MotionSensorImpl(Controller controller, MotionListenerAction action) {
+        super(controller, action, NAME, PIN_NUMBER);
     }
 }
