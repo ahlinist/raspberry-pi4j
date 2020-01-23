@@ -14,6 +14,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class RaspberryPiControllerImpl implements Controller {
 
+    private static final PinPullResistance RESISTANCE = PinPullResistance.PULL_DOWN;
+
     private static final Map<Integer, Pin> PIN_MAPPING = Map.ofEntries(
             new HashMap.SimpleImmutableEntry<>(0, RaspiPin.GPIO_00),
             new HashMap.SimpleImmutableEntry<>(1, RaspiPin.GPIO_01),
@@ -54,8 +56,7 @@ public class RaspberryPiControllerImpl implements Controller {
     @Override
     public Input initInput(int pinNumber, String pinName) {
         Pin pin = PIN_MAPPING.get(pinNumber);
-        PinPullResistance resistance = PinPullResistance.PULL_DOWN;
-        GpioPinDigitalInput gpioInput = gpioController.provisionDigitalInputPin(pin, pinName, resistance);
+        GpioPinDigitalInput gpioInput = gpioController.provisionDigitalInputPin(pin, pinName, RESISTANCE);
         return new RaspberryPiInputImpl(gpioInput);
     }
 
