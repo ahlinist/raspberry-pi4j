@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ControllerConfiguration {
 
     @Bean
-    public GpioController controller() {
+    public GpioController gpioController() {
         return GpioFactory.getInstance();
     }
 }
