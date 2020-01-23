@@ -18,12 +18,10 @@ class RoboApplicationTest extends Specification {
 
     def "test context loads"() {
         given:
-        gpioController.provisionDigitalInputPin(_, _, _) >> {throw new RuntimeException('asd')}
+        gpioController.provisionDigitalInputPin(_, _, _) >> {throw new RuntimeException("I'm stubbed!")}
 
         expect:
         context != null
-        context.containsBean("helloWorldService")
-        context.containsBean("simpleBootApp")
-        context.containsBean("scopedHelloWorldService")
+        context.containsBean('gpioController')
     }
 }
