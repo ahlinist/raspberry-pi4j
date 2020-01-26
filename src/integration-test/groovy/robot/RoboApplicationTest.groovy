@@ -14,11 +14,12 @@ class RoboApplicationTest extends Specification {
     ApplicationContext context
 
     @SpringBean
-    GpioController gpioController = Stub() {
-        provisionDigitalInputPin(_, _, _) >> { throw new RuntimeException("I'm stubbed!") }
-    }
+    GpioController gpioController = Stub()
 
     def "test context loads"() {
+        given:
+        gpioController.provisionDigitalInputPin(_, _, _) >> { throw new RuntimeException("I'm stubbed!") }
+
         expect:
         context != null
         context.containsBean('gpioController')
