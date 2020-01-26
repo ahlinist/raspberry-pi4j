@@ -1,7 +1,7 @@
 package robot.sensor;
 
 import lombok.RequiredArgsConstructor;
-import robot.controller.Controller;
+import robot.core.Controller;
 
 @RequiredArgsConstructor
 public abstract class AbstractSensor implements Sensor {

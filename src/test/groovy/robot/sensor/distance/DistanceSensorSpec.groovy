@@ -1,7 +1,7 @@
 package robot.sensor.distance
 
-import robot.controller.Controller
-import robot.controller.Input
+import robot.core.Controller
+import robot.core.Input
 import robot.sensor.distance.impl.DistanceListenerAction
 import robot.sensor.distance.impl.DistanceSensorImpl
 import spock.lang.Specification

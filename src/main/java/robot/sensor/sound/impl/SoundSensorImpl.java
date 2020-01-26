@@ -1,7 +1,7 @@
 package robot.sensor.sound.impl;
 
 import org.springframework.stereotype.Component;
-import robot.controller.Controller;
+import robot.core.Controller;
 import robot.sensor.AbstractSensor;
 import robot.sensor.sound.SoundSensor;
 

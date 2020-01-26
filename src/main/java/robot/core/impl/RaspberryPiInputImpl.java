@@ -1,10 +1,10 @@
-package robot.controller.impl;
+package robot.core.impl;
 
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import lombok.RequiredArgsConstructor;
-import robot.controller.Input;
-import robot.controller.Listener;
+import robot.core.Input;
+import robot.core.Listener;
 
 @RequiredArgsConstructor
 public class RaspberryPiInputImpl implements Input {

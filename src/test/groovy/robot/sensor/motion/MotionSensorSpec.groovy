@@ -1,7 +1,7 @@
 package robot.sensor.motion
 
-import robot.controller.Controller
-import robot.controller.Input
+import robot.core.Controller
+import robot.core.Input
 import robot.sensor.motion.impl.MotionListenerAction
 import robot.sensor.motion.impl.MotionSensorImpl
 import spock.lang.Specification

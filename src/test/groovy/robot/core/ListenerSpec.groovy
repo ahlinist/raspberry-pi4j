@@ -1,7 +1,7 @@
-package robot.controller
+package robot.core
 
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent
-import robot.controller.impl.RaspberryPiListenerImpl
+import robot.core.impl.RaspberryPiListenerImpl
 import spock.lang.Specification
 import spock.lang.Subject
 

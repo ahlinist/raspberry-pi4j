@@ -1,8 +1,8 @@
-package robot.controller.impl;
+package robot.core.impl;
 
 import org.springframework.stereotype.Component;
-import robot.controller.Listener;
-import robot.controller.ListenerFactory;
+import robot.core.Listener;
+import robot.core.ListenerFactory;
 
 @Component
 public class RaspberryPiListenerFactoryImpl implements ListenerFactory {

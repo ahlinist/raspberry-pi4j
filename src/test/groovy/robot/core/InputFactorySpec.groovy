@@ -1,10 +1,10 @@
-package robot.controller
+package robot.core
 
 import com.pi4j.io.gpio.GpioController
 import com.pi4j.io.gpio.PinPullResistance
 import com.pi4j.io.gpio.RaspiPin
-import robot.controller.impl.RaspberryPiInputFactoryImpl
-import robot.controller.impl.RaspberryPiInputImpl
+import robot.core.impl.RaspberryPiInputFactoryImpl
+import robot.core.impl.RaspberryPiInputImpl
 import spock.lang.Specification
 import spock.lang.Subject
 

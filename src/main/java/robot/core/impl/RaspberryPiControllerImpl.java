@@ -1,8 +1,8 @@
-package robot.controller.impl;
+package robot.core.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import robot.controller.*;
+import robot.core.*;
 
 @Component
 @RequiredArgsConstructor

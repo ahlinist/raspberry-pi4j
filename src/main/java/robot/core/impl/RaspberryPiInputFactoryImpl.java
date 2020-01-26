@@ -1,10 +1,10 @@
-package robot.controller.impl;
+package robot.core.impl;
 
 import com.pi4j.io.gpio.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import robot.controller.Input;
-import robot.controller.InputFactory;
+import robot.core.Input;
+import robot.core.InputFactory;
 
 import java.util.HashMap;
 import java.util.Map;

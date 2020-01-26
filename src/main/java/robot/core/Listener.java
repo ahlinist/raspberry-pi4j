@@ -1,4 +1,4 @@
-package robot.controller;
+package robot.core;
 
 public interface Listener {
 

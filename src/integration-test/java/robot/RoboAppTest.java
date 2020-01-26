@@ -12,7 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import robot.configuration.ControllerConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { RoboApplication.class, ControllerConfiguration.class})
+@ContextConfiguration(classes = {RoboApplication.class, ControllerConfiguration.class})
 @WebAppConfiguration
 public class RoboAppTest {
 
@@ -23,7 +23,7 @@ public class RoboAppTest {
     TwoWheelRobot twoWheelRobot;
 
     @Test
-    public void testMe() {
+    public void testApplicationContextLoads() {
         Assert.assertNotNull(twoWheelRobot);
     }
 }
