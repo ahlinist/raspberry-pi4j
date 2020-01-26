@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import robot.controller.Controller;
 import robot.controller.Input;
 import robot.controller.Listener;
+import robot.controller.ListenerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,16 +53,15 @@ public class RaspberryPiControllerImpl implements Controller {
     );
 
     private final GpioController gpioController;
+    private final ListenerFactory listenerFactory;
 
     @Override
-    public Input initInput(int pinNumber, String pinName) {
+    public Input initInput(int pinNumber, String pinName, Runnable action) {
+        Listener listener = listenerFactory.getInstance(action);
         Pin pin = PIN_MAPPING.get(pinNumber);
         GpioPinDigitalInput gpioInput = gpioController.provisionDigitalInputPin(pin, pinName, RESISTANCE);
-        return new RaspberryPiInputImpl(gpioInput);
-    }
-
-    @Override
-    public Listener initListener(Runnable action) {
-        return new RaspberryPiListenerImpl(action);
+        Input input = new RaspberryPiInputImpl(gpioInput);
+        input.addListener(listener);
+        return input;
     }
 }
