@@ -50,6 +50,7 @@ sourceSets {
 }
 
 task integrationTest(type: Test) {
+	group = 'verification'
 	testClassesDirs = sourceSets.integrationTest.output.classesDirs
 	classpath = sourceSets.integrationTest.runtimeClasspath
 }
