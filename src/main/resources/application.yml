@@ -1,1 +1,10 @@
-
+sensor:
+  distance:
+    pin: 0
+    name: distance sensor
+  motion:
+    pin: 1
+    name: motion sensor
+  sound:
+    pin: 2
+    name: sound sensor
