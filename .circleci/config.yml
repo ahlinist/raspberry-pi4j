@@ -35,13 +35,9 @@ jobs:
           command: |
             ./gradlew test
       - run:
-          name: Save unit tests results
+          name: Run integration tests
           command: |
-            mkdir -p ~/unit-test/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/unit-test/ \;
-          when: always
-      - store_test_results:
-          path: ~/unit-test
+            ./gradlew integrationTest
       - run:
           name: Build fat jar
           command: |
