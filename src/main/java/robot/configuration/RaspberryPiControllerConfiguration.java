@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ControllerConfiguration {
+public class RaspberryPiControllerConfiguration {
 
     @Bean
     public GpioController gpioController() {
