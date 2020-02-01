@@ -3,6 +3,7 @@ package robot
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
+import robot.chassis.impl.WheelRobotImpl
 import robot.configuration.ControllerTestConfiguration
 import spock.lang.Specification
 
@@ -12,10 +13,10 @@ class RoboApplicationTest extends Specification {
 
 
     @Autowired
-    TwoWheelRobot twoWheelRobot
+    WheelRobotImpl wheelRobot
 
     def "test context loads"() {
         expect:
-        twoWheelRobot != null
+        wheelRobot != null
     }
 }

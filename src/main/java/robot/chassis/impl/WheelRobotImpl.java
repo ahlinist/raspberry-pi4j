@@ -1,14 +1,15 @@
-package robot;
+package robot.chassis.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import robot.chassis.Chassis;
 import robot.sensor.distance.DistanceSensor;
 import robot.sensor.motion.MotionSensor;
 import robot.sensor.sound.SoundSensor;
 
 @Component
 @RequiredArgsConstructor
-public class TwoWheelRobot implements Robot {
+public class WheelRobotImpl implements Chassis {
 
     private final SoundSensor soundSensor;
     private final MotionSensor motionSensor;

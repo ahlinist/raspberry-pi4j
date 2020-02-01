@@ -5,12 +5,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import robot.chassis.Chassis;
 
 @SpringBootApplication
 @RequiredArgsConstructor
 public class RoboApplication implements ApplicationRunner {
 
-	private final Robot robot;
+	private final Chassis chassis;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RoboApplication.class, args);
@@ -19,6 +20,6 @@ public class RoboApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 		System.out.println("Starting app...");
-		robot.init();
+		chassis.init();
 	}
 }
