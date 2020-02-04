@@ -1,12 +1,14 @@
 package robot.chassis.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import robot.chassis.Chassis;
 import robot.sensor.distance.DistanceSensor;
 import robot.sensor.motion.MotionSensor;
 import robot.sensor.sound.SoundSensor;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class WheelRobotImpl implements Chassis {
@@ -17,7 +19,7 @@ public class WheelRobotImpl implements Chassis {
 
     @Override
     public void init() {
-        System.out.println("Initializing a two wheel robot...");
+        log.info("Initializing a two wheel robot...");
         soundSensor.init();
         motionSensor.init();
         distanceSensor.init();

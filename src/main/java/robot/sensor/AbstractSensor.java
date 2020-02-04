@@ -1,8 +1,10 @@
 package robot.sensor;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import robot.core.Controller;
 
+@Slf4j
 @RequiredArgsConstructor
 public abstract class AbstractSensor implements Sensor {
 
@@ -13,7 +15,7 @@ public abstract class AbstractSensor implements Sensor {
 
     @Override
     public void init() {
-        System.out.println("Initializing " + name);
+        log.info("Initializing " + name);
         controller.initInput(pinNumber, name, action);
     }
 }
