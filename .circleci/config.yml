@@ -44,14 +44,3 @@ jobs:
             ./gradlew clean build -x test
       - store_artifacts:
           path: ~/repo/build/libs
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: Build docker image
-          command: |
-            docker build -t antonhlinisty/raspberry-pi4j .
-      - run:
-          name: Push docker image to dockerhub
-          command: |
-            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push antonhlinisty/raspberry-pi4j
