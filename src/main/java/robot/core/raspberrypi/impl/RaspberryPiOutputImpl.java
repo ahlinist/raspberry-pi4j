@@ -2,6 +2,7 @@ package robot.core.raspberrypi.impl;
 
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import robot.core.Output;
 
 import java.time.temporal.ChronoUnit;
@@ -14,8 +15,12 @@ public class RaspberryPiOutputImpl implements Output {
     private final GpioPinDigitalOutput gpioPinDigitalOutput;
 
     @Override
+    @SneakyThrows
     public void pulse() {
-        gpioPinDigitalOutput.blink(0, interval, TimeUnit.of(ChronoUnit.MILLIS));
+        gpioPinDigitalOutput.high();
+        Thread.sleep(1000l);
+        gpioPinDigitalOutput.low();
+        //gpioPinDigitalOutput.blink(0, interval, TimeUnit.of(ChronoUnit.MILLIS));
         //gpioPinDigitalOutput.pulse(interval, TimeUnit.of(ChronoUnit.MILLIS));
     }
 }
