@@ -5,9 +5,6 @@ import robot.core.raspberrypi.impl.RaspberryPiOutputImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
-import java.time.temporal.ChronoUnit
-import java.util.concurrent.TimeUnit
-
 class OutputSpec extends Specification {
 
     long interval = 0
@@ -21,10 +18,7 @@ class OutputSpec extends Specification {
         output.pulse()
 
         then:
-        1 * gpioPinDigitalOutput.high()
-        1 * gpioPinDigitalOutput.low()
-        //1 * gpioPinDigitalOutput.blink(0, interval, TimeUnit.of(ChronoUnit.MILLIS))
-        //1 * gpioPinDigitalOutput.pulse(interval, TimeUnit.of(ChronoUnit.MILLIS))
+        1 * gpioPinDigitalOutput.pulse(interval)
         0 * _
     }
 }

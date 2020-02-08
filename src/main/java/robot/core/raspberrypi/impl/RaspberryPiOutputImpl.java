@@ -5,9 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import robot.core.Output;
 
-import java.time.temporal.ChronoUnit;
-import java.util.concurrent.TimeUnit;
-
 @RequiredArgsConstructor
 public class RaspberryPiOutputImpl implements Output {
 
@@ -17,10 +14,6 @@ public class RaspberryPiOutputImpl implements Output {
     @Override
     @SneakyThrows
     public void pulse() {
-        gpioPinDigitalOutput.high();
-        Thread.sleep(1000l);
-        gpioPinDigitalOutput.low();
-        //gpioPinDigitalOutput.blink(0, interval, TimeUnit.of(ChronoUnit.MILLIS));
-        //gpioPinDigitalOutput.pulse(interval, TimeUnit.of(ChronoUnit.MILLIS));
+        gpioPinDigitalOutput.pulse(interval);
     }
 }
