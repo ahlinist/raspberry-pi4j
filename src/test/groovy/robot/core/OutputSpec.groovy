@@ -21,7 +21,8 @@ class OutputSpec extends Specification {
         output.pulse()
 
         then:
-        1 * gpioPinDigitalOutput.pulse(interval, TimeUnit.of(ChronoUnit.MILLIS))
+        1 * gpioPinDigitalOutput.blink(0, interval, TimeUnit.of(ChronoUnit.MILLIS))
+        //1 * gpioPinDigitalOutput.pulse(interval, TimeUnit.of(ChronoUnit.MILLIS))
         0 * _
     }
 }
