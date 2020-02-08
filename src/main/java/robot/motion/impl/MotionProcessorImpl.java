@@ -29,7 +29,12 @@ public class MotionProcessorImpl implements MotionProcessor {
     }
 
     private void move(Step step) {
+        if (step == null) {
+            return;
+        }
+
         Direction direction = step.getDirection();
+        log.info("Moving " + direction);
 
         switch(direction) {
             case FORWARD:

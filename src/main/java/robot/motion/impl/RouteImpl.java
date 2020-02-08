@@ -24,7 +24,7 @@ public class RouteImpl implements Route {
         try {
             return sequences.pop();
         } catch(EmptyStackException e) {
-            return null;
+            return List.of();
         }
     }
 }

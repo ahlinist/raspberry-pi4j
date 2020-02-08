@@ -12,6 +12,18 @@ class MotionProcessorSpec extends Specification {
     @Subject
     MotionProcessor motionProcessor = new MotionProcessorImpl(route, trackController)
 
+    def "test no motion"() {
+        given:
+        List<Step> steps = []
+
+        when:
+        motionProcessor.process()
+
+        then:
+        1 * route.nextSequence() >> steps
+        0 * _
+    }
+
     def "test motion forward"() {
         given:
         List<Step> steps = [new Step(Speed.AVERAGE, Direction.FORWARD)]

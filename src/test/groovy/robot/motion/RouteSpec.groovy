@@ -26,6 +26,6 @@ class RouteSpec extends Specification {
         then:
         route.nextSequence() == sequence2
         route.nextSequence() == sequence1
-        route.nextSequence() == null
+        route.nextSequence() == []
     }
 }
