@@ -9,6 +9,7 @@ import robot.core.*;
 public class RaspberryPiControllerImpl implements Controller {
 
     private final InputFactory inputFactory;
+    private final OutputFactory outputFactory;
     private final ListenerFactory listenerFactory;
 
     @Override
@@ -17,5 +18,10 @@ public class RaspberryPiControllerImpl implements Controller {
         Input input = inputFactory.getInstance(pinNumber, pinName);
         input.addListener(listener);
         return input;
+    }
+
+    @Override
+    public Output initOutput(int pinNumber, String pinName) {
+        return outputFactory.getInstance(pinNumber, pinName);
     }
 }
