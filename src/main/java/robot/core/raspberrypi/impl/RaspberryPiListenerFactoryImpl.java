@@ -1,4 +1,4 @@
-package robot.core.impl;
+package robot.core.raspberrypi.impl;
 
 import org.springframework.stereotype.Component;
 import robot.core.Listener;

@@ -1,21 +1,14 @@
-package robot.core.impl;
+package robot.core.raspberrypi;
 
-import com.pi4j.io.gpio.*;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import robot.core.Input;
-import robot.core.InputFactory;
+import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.RaspiPin;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
-@RequiredArgsConstructor
-public class RaspberryPiInputFactoryImpl implements InputFactory {
+public class RaspberryPiPinMapping {
 
-    private static final PinPullResistance RESISTANCE = PinPullResistance.PULL_DOWN;
-
-    private static final Map<Integer, Pin> PIN_MAPPING = Map.ofEntries(
+    public static final Map<Integer, Pin> PIN_MAPPING = Map.ofEntries(
             new HashMap.SimpleImmutableEntry<>(0, RaspiPin.GPIO_00),
             new HashMap.SimpleImmutableEntry<>(1, RaspiPin.GPIO_01),
             new HashMap.SimpleImmutableEntry<>(2, RaspiPin.GPIO_02),
@@ -49,13 +42,4 @@ public class RaspberryPiInputFactoryImpl implements InputFactory {
             new HashMap.SimpleImmutableEntry<>(30, RaspiPin.GPIO_30),
             new HashMap.SimpleImmutableEntry<>(31, RaspiPin.GPIO_31)
     );
-
-    private final GpioController gpioController;
-
-    @Override
-    public Input getInstance(int pinNumber, String pinName) {
-        Pin pin = PIN_MAPPING.get(pinNumber);
-        GpioPinDigitalInput gpioInput = gpioController.provisionDigitalInputPin(pin, pinName, RESISTANCE);
-        return new RaspberryPiInputImpl(gpioInput);
-    }
 }

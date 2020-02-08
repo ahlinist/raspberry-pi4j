@@ -1,6 +1,6 @@
 package robot.core
 
-import robot.core.impl.RaspberryPiListenerFactoryImpl
+import robot.core.raspberrypi.impl.RaspberryPiListenerFactoryImpl
 import spock.lang.Specification
 import spock.lang.Subject
 

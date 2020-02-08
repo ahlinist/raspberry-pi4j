@@ -1,4 +1,4 @@
-package robot.core.impl;
+package robot.core.raspberrypi.impl;
 
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;

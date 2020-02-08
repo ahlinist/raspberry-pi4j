@@ -1,8 +1,8 @@
 package robot.core
 
 import com.pi4j.io.gpio.GpioPinDigitalInput
-import robot.core.impl.RaspberryPiInputImpl
-import robot.core.impl.RaspberryPiListenerImpl
+import robot.core.raspberrypi.impl.RaspberryPiInputImpl
+import robot.core.raspberrypi.impl.RaspberryPiListenerImpl
 import spock.lang.Specification
 import spock.lang.Subject
 

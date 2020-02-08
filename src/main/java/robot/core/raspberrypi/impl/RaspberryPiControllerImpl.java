@@ -1,4 +1,4 @@
-package robot.core.impl;
+package robot.core.raspberrypi.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

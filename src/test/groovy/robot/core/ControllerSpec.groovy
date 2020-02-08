@@ -1,6 +1,6 @@
 package robot.core
 
-import robot.core.impl.RaspberryPiControllerImpl
+import robot.core.raspberrypi.impl.RaspberryPiControllerImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
