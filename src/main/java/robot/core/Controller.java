@@ -2,7 +2,7 @@ package robot.core;
 
 public interface Controller {
 
-    Input initInput(int punNumber, String pinName, Runnable action);
+    Input initInput(int punNumber, Runnable action);
 
-    Output initOutput(int pinNumber, String pinName);
+    Output initOutput(int pinNumber);
 }

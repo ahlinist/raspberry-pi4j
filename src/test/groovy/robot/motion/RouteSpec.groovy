@@ -11,11 +11,11 @@ class RouteSpec extends Specification {
 
     def "test addSteps()"() {
         given:
-        Step step1 = new Step(Speed.AVERAGE, Direction.TOWARDS)
+        Step step1 = new Step(Speed.AVERAGE, Direction.FORWARD)
         Step step2 = new Step(Speed.SLOW, Direction.RIGHT)
         Step step3 = new Step(Speed.FAST, Direction.LEFT)
-        Step step4 = new Step(Speed.AVERAGE, Direction.BACK)
-        Step step5 = new Step(Speed.FAST, Direction.TOWARDS)
+        Step step4 = new Step(Speed.AVERAGE, Direction.BACKWARD)
+        Step step5 = new Step(Speed.FAST, Direction.FORWARD)
         List<Step> sequence1 = List.of(step1, step2, step3)
         List<Step> sequence2 = List.of(step4, step5)
 

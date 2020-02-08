@@ -17,7 +17,7 @@ class MotionListenerActionSpec extends Specification {
 
     def "test run()"() {
         given:
-        List<Step> sequence = [new Step(Speed.FAST, Direction.TOWARDS)]
+        List<Step> sequence = [new Step(Speed.FAST, Direction.FORWARD)]
 
         when:
         motionListenerAction.run()

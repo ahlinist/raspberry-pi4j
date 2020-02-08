@@ -1,24 +1,29 @@
 package robot.core.raspberrypi.impl;
 
 import com.pi4j.io.gpio.*;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import robot.core.Output;
 import robot.core.OutputFactory;
 import robot.core.raspberrypi.RaspberryPiPinMapping;
 
 @Component
-@RequiredArgsConstructor
 public class RaspberryPiOutputFactoryImpl implements OutputFactory {
 
     private static final PinState STATE = PinState.LOW;
 
+    private final long interval;
     private final GpioController gpioController;
 
+    public RaspberryPiOutputFactoryImpl(@Value("${operations.interval}") long interval, GpioController gpioController) {
+        this.interval = interval;
+        this.gpioController = gpioController;
+    }
+
     @Override
-    public Output getInstance(int pinNumber, String pinName) {
+    public Output getInstance(int pinNumber) {
         Pin pin = RaspberryPiPinMapping.PIN_MAPPING.get(pinNumber);
-        GpioPinDigitalOutput gpioOutput = gpioController.provisionDigitalOutputPin(pin, pinName, STATE);
-        return new RaspberryPiOutputImpl(gpioOutput);
+        GpioPinDigitalOutput gpioOutput = gpioController.provisionDigitalOutputPin(pin, STATE);
+        return new RaspberryPiOutputImpl(interval, gpioOutput);
     }
 }

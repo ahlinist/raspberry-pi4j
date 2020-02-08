@@ -17,7 +17,7 @@ class SoundListenerActionSpec extends Specification {
 
     def "test run()"() {
         given:
-        List sequence = [new Step(Speed.SLOW, Direction.BACK)]
+        List sequence = [new Step(Speed.SLOW, Direction.BACKWARD)]
 
         when:
         soundListenerAction.run()

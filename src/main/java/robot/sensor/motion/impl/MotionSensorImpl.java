@@ -9,10 +9,11 @@ import robot.sensor.motion.MotionSensor;
 @Component
 public class MotionSensorImpl extends AbstractSensor implements MotionSensor {
 
+    private static final String NAME = "motion sensor";
+
     public MotionSensorImpl(Controller controller,
                             MotionListenerAction action,
-                            @Value("${sensor.motion.name}") String name,
                             @Value("${sensor.motion.pin}") int pin) {
-        super(controller, action, name, pin);
+        super(controller, action, NAME, pin);
     }
 }

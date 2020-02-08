@@ -11,11 +11,10 @@ class MotionSensorSpec extends Specification {
 
     Controller controller = Mock Controller
     MotionListenerAction action = Mock MotionListenerAction
-    String name = 'motion sensor'
     Integer pin = 1
 
     @Subject
-    MotionSensor motionSensor = new MotionSensorImpl(controller, action, name, pin)
+    MotionSensor motionSensor = new MotionSensorImpl(controller, action, pin)
 
     Input input = Mock Input
 
@@ -24,7 +23,7 @@ class MotionSensorSpec extends Specification {
         motionSensor.init()
 
         then:
-        1 * controller.initInput(1, 'motion sensor', action) >> input
+        1 * controller.initInput(1, action) >> input
         0 * _
     }
 }

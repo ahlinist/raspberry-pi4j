@@ -16,6 +16,6 @@ public abstract class AbstractSensor implements Sensor {
     @Override
     public void init() {
         log.info("Initializing " + name);
-        controller.initInput(pinNumber, name, action);
+        controller.initInput(pinNumber, action);
     }
 }

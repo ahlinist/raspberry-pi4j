@@ -2,5 +2,5 @@ package robot.motion;
 
 public enum Direction {
 
-    TOWARDS, LEFT, RIGHT, BACK
+    FORWARD, LEFT, RIGHT, BACKWARD
 }

@@ -21,14 +21,13 @@ class ControllerSpec extends Specification {
     def "test initInput()"() {
         given:
         Integer pinNumber = 1
-        String pinName = 'pin name'
 
         when:
-        Input result = controller.initInput(pinNumber, pinName, action)
+        Input result = controller.initInput(pinNumber, action)
 
         then:
         1 * listenerFactory.getInstance(action) >> listener
-        1 * inputFactory.getInstance(pinNumber, pinName) >> input
+        1 * inputFactory.getInstance(pinNumber) >> input
         1 * input.addListener(listener)
         0 * _
 
@@ -39,13 +38,12 @@ class ControllerSpec extends Specification {
     def "test initOutput()"() {
         given:
         Integer pinNumber = 1
-        String pinName = 'pin name'
 
         when:
-        Output result = controller.initOutput(pinNumber, pinName)
+        Output result = controller.initOutput(pinNumber)
 
         then:
-        1 * outputFactory.getInstance(pinNumber, pinName) >> output
+        1 * outputFactory.getInstance(pinNumber) >> output
         0 * _
 
         and:

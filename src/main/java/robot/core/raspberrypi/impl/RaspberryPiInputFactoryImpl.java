@@ -16,9 +16,9 @@ public class RaspberryPiInputFactoryImpl implements InputFactory {
     private final GpioController gpioController;
 
     @Override
-    public Input getInstance(int pinNumber, String pinName) {
+    public Input getInstance(int pinNumber) {
         Pin pin = RaspberryPiPinMapping.PIN_MAPPING.get(pinNumber);
-        GpioPinDigitalInput gpioInput = gpioController.provisionDigitalInputPin(pin, pinName, RESISTANCE);
+        GpioPinDigitalInput gpioInput = gpioController.provisionDigitalInputPin(pin, RESISTANCE);
         return new RaspberryPiInputImpl(gpioInput);
     }
 }

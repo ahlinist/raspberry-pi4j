@@ -23,7 +23,7 @@ class ControllerTestConfiguration {
 
     @AutoImplement
     class GpioControllerMock implements GpioController {
-        GpioPinDigitalInput provisionDigitalInputPin(Pin pin, String name, PinPullResistance resistance) {
+        GpioPinDigitalInput provisionDigitalInputPin(Pin pin, PinPullResistance resistance) {
             new GpioPinDigitalInputMock()
         }
     }

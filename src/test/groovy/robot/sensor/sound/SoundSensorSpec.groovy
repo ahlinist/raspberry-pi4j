@@ -11,11 +11,10 @@ class SoundSensorSpec extends Specification {
 
     Controller controller = Mock Controller
     SoundListenerAction action = Mock SoundListenerAction
-    String name = 'sound sensor'
     Integer pin = 2
 
     @Subject
-    SoundSensor soundSensor = new SoundSensorImpl(controller, action, name, pin)
+    SoundSensor soundSensor = new SoundSensorImpl(controller, action, pin)
 
     Input input = Mock Input
 
@@ -24,7 +23,7 @@ class SoundSensorSpec extends Specification {
         soundSensor.init()
 
         then:
-        1 * controller.initInput(2, 'sound sensor', action) >> input
+        1 * controller.initInput(2, action) >> input
         0 * _
     }
 }

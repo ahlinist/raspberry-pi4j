@@ -20,7 +20,7 @@ public class SoundListenerAction implements Runnable {
     @Override
     public void run() {
         log.info(" --> Sound detected!");
-        Step stepBack = new Step(Speed.SLOW, Direction.BACK);
+        Step stepBack = new Step(Speed.SLOW, Direction.BACKWARD);
         List<Step> sequence = List.of(stepBack);
         route.addSequence(sequence);
     }

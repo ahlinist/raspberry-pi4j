@@ -13,15 +13,15 @@ public class RaspberryPiControllerImpl implements Controller {
     private final ListenerFactory listenerFactory;
 
     @Override
-    public Input initInput(int pinNumber, String pinName, Runnable action) {
+    public Input initInput(int pinNumber, Runnable action) {
         Listener listener = listenerFactory.getInstance(action);
-        Input input = inputFactory.getInstance(pinNumber, pinName);
+        Input input = inputFactory.getInstance(pinNumber);
         input.addListener(listener);
         return input;
     }
 
     @Override
-    public Output initOutput(int pinNumber, String pinName) {
-        return outputFactory.getInstance(pinNumber, pinName);
+    public Output initOutput(int pinNumber) {
+        return outputFactory.getInstance(pinNumber);
     }
 }

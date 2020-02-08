@@ -9,10 +9,11 @@ import robot.sensor.sound.SoundSensor;
 @Component
 public class SoundSensorImpl extends AbstractSensor implements SoundSensor {
 
+    private static final String NAME = "sound sensor";
+
     public SoundSensorImpl(Controller controller,
                            SoundListenerAction action,
-                           @Value("${sensor.sound.name}") String name,
                            @Value("${sensor.sound.pin}") int pin) {
-        super(controller, action, name, pin);
+        super(controller, action, NAME, pin);
     }
 }

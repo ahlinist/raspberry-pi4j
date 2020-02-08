@@ -9,10 +9,11 @@ import robot.sensor.distance.DistanceSensor;
 @Component
 public class DistanceSensorImpl extends AbstractSensor implements DistanceSensor {
 
+    private static final String NAME = "distance sensor";
+
     public DistanceSensorImpl(Controller controller,
                               DistanceListenerAction action,
-                              @Value("${sensor.distance.name}") String name,
                               @Value("${sensor.distance.pin}") int pin) {
-        super(controller, action, name, pin);
+        super(controller, action, NAME, pin);
     }
 }

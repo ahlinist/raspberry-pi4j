@@ -18,13 +18,12 @@ class InputFactorySpec extends Specification {
     def "test getInstance()"() {
         given:
         int pinNumber = 1
-        String pinName = 'pin name'
 
         when:
-        def result = inputFactory.getInstance(pinNumber, pinName)
+        def result = inputFactory.getInstance(pinNumber)
 
         then:
-        1 * gpioController.provisionDigitalInputPin(RaspiPin.GPIO_01, pinName, PinPullResistance.PULL_DOWN)
+        1 * gpioController.provisionDigitalInputPin(RaspiPin.GPIO_01, PinPullResistance.PULL_DOWN)
         0 * _
 
         and:

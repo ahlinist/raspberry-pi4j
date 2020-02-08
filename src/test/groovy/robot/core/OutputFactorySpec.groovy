@@ -10,20 +10,20 @@ import spock.lang.Subject
 
 class OutputFactorySpec extends Specification {
 
+    long interval = 0
     GpioController gpioController = Mock GpioController
 
     @Subject
-    OutputFactory outputFactory = new RaspberryPiOutputFactoryImpl(gpioController)
+    OutputFactory outputFactory = new RaspberryPiOutputFactoryImpl(interval, gpioController)
 
     def "test getInstance()"() {
         given:
-        String pinName = 'pin name'
 
         when:
-        Output output = outputFactory.getInstance(1, pinName)
+        Output output = outputFactory.getInstance(1)
 
         then:
-        1 * gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_01, pinName, PinState.LOW)
+        1 * gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_01, PinState.LOW)
         0 * _
 
         and:

@@ -1,14 +1,26 @@
 logging:
   file:
     name: logs/application.log
+operations:
+  interval: 1000
 
 sensor:
   distance:
     pin: 0
-    name: distance sensor
   motion:
     pin: 1
-    name: motion sensor
   sound:
     pin: 2
-    name: sound sensor
+
+motion:
+  track:
+    right:
+      forward:
+        pin: 3
+      backward:
+        pin: 4
+    left:
+      forward:
+        pin: 5
+      backward:
+        pin: 6
