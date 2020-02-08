@@ -15,6 +15,7 @@ public class RaspberryPiOutputImpl implements Output {
 
     @Override
     public void pulse() {
+        gpioPinDigitalOutput.high();
         gpioPinDigitalOutput.pulse(interval, TimeUnit.of(ChronoUnit.MILLIS));
     }
 }
