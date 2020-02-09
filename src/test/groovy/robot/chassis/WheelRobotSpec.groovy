@@ -1,4 +1,4 @@
-package robot
+package robot.chassis
 
 import robot.chassis.impl.WheelRobotImpl
 import robot.motion.MotionProcessor

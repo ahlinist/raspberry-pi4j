@@ -13,14 +13,11 @@ class MotionProcessorSpec extends Specification {
     MotionProcessor motionProcessor = new MotionProcessorImpl(route, trackController)
 
     def "test no motion"() {
-        given:
-        List<Step> steps = []
-
         when:
         motionProcessor.process()
 
         then:
-        1 * route.nextSequence() >> steps
+        1 * route.nextSequence() >> []
         0 * _
     }
 
