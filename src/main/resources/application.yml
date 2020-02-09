@@ -11,6 +11,7 @@ sensor:
     pin: 1
   sound:
     pin: 2
+    interval: 1000
 
 motion:
   track:

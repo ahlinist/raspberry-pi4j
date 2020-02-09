@@ -1,5 +1,6 @@
 package robot.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,24 +14,16 @@ import robot.motion.impl.TrackImpl;
 @Configuration
 public class TrackControllerConfiguration {
 
-    private final int rightForwardPin;
-    private final int rightBackwardPin;
-    private final int leftForwardPin;
-    private final int leftBackwardPin;
-    private final Controller controller;
-
-    public TrackControllerConfiguration(
-            @Value("${motion.track.right.forward.pin}") int rightForwardPin,
-            @Value("${motion.track.right.backward.pin}") int rightBackwardPin,
-            @Value("${motion.track.left.forward.pin}") int leftForwardPin,
-            @Value("${motion.track.left.backward.pin}") int leftBackwardPin,
-            Controller controller) {
-        this.rightForwardPin = rightForwardPin;
-        this.rightBackwardPin = rightBackwardPin;
-        this.leftForwardPin = leftForwardPin;
-        this.leftBackwardPin = leftBackwardPin;
-        this.controller = controller;
-    }
+    @Value("${motion.track.right.forward.pin}")
+    private int rightForwardPin;
+    @Value("${motion.track.right.backward.pin}")
+    private int rightBackwardPin;
+    @Value("${motion.track.left.forward.pin}")
+    private int leftForwardPin;
+    @Value("${motion.track.left.backward.pin}")
+    private int leftBackwardPin;
+    @Autowired
+    private Controller controller;
 
     @Bean
     public Track rightTrack() {

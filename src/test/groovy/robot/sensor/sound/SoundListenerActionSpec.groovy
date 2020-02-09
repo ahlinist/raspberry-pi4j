@@ -1,29 +1,22 @@
 package robot.sensor.sound
 
-import robot.motion.Direction
-import robot.motion.Route
-import robot.motion.Speed
-import robot.motion.Step
-import robot.sensor.sound.impl.SoundListenerAction
+import robot.sensor.sound.impl.SoundListenerActionImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
 class SoundListenerActionSpec extends Specification {
 
-    Route route = Mock Route
+    SoundSensorModule soundSensorModule = Mock SoundSensorModule
 
     @Subject
-    SoundListenerAction soundListenerAction = new SoundListenerAction(route)
+    SoundListenerActionImpl soundListenerAction = new SoundListenerActionImpl(soundSensorModule)
 
     def "test run()"() {
-        given:
-        List sequence = [new Step(Speed.SLOW, Direction.BACKWARD)]
-
         when:
         soundListenerAction.run()
 
         then:
-        1 * route.addSequence(sequence)
+        1 * soundSensorModule.registerEvent()
         0 * _
     }
 }
