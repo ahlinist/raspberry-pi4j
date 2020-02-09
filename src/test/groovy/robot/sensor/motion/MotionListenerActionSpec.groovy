@@ -1,29 +1,22 @@
 package robot.sensor.motion
 
-import robot.motion.Direction
-import robot.motion.Route
-import robot.motion.Speed
-import robot.motion.Step
-import robot.sensor.motion.impl.MotionListenerAction
+import robot.sensor.motion.impl.MotionListenerActionImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
 class MotionListenerActionSpec extends Specification {
 
-    Route route = Mock Route
+    MotionSensorModule sensorModule = Mock MotionSensorModule
 
     @Subject
-    MotionListenerAction motionListenerAction = new MotionListenerAction(route)
+    MotionListenerActionImpl motionListenerAction = new MotionListenerActionImpl(sensorModule)
 
     def "test run()"() {
-        given:
-        List<Step> sequence = [new Step(Speed.FAST, Direction.FORWARD)]
-
         when:
         motionListenerAction.run()
 
         then:
-        1 * route.addSequence(sequence)
+        1 * sensorModule.registerEvent()
         0 * _
     }
 }

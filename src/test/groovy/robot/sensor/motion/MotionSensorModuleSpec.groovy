@@ -1,24 +1,24 @@
-package robot.sensor.sound
+package robot.sensor.motion
 
 import robot.motion.Direction
 import robot.motion.Route
 import robot.motion.Speed
 import robot.motion.Step
-import robot.sensor.sound.impl.SoundSensorModuleImpl
+import robot.sensor.motion.impl.MotionSensorModuleImpl
 import spock.lang.Specification
 import spock.lang.Subject
 
-class SoundSensorModuleSpec extends Specification {
+class MotionSensorModuleSpec extends Specification {
 
     Integer eventInterval = 1000
     Route route = Mock Route
 
     @Subject
-    SoundSensorModule sensorModule = new SoundSensorModuleImpl(eventInterval, route)
+    MotionSensorModule sensorModule = new MotionSensorModuleImpl(eventInterval, route)
 
     def "test registerEvent()"() {
         given:
-        List<Step> sequence = [new Step(Speed.SLOW, Direction.BACKWARD)]
+        List<Step> sequence = [new Step(Speed.AVERAGE, Direction.FORWARD)]
 
         when:
         sensorModule.registerEvent()
@@ -30,7 +30,7 @@ class SoundSensorModuleSpec extends Specification {
 
     def "test registerEvent() for 2 sequential events more frequent than allowed interval"() {
         given: 'event interval is 1000 ms'
-        List<Step> sequence = [new Step(Speed.SLOW, Direction.BACKWARD)]
+        List<Step> sequence = [new Step(Speed.AVERAGE, Direction.FORWARD)]
 
         when:
         sensorModule.registerEvent()
@@ -43,8 +43,8 @@ class SoundSensorModuleSpec extends Specification {
 
     def "test registerEvent() for 2 sequential events matching interval"() {
         given: 'event interval is 0'
-        SoundSensorModule sensorModule = new SoundSensorModuleImpl(0, route)
-        List<Step> sequence = [new Step(Speed.SLOW, Direction.BACKWARD)]
+        MotionSensorModule sensorModule = new MotionSensorModuleImpl(0, route)
+        List<Step> sequence = [new Step(Speed.AVERAGE, Direction.FORWARD)]
 
         when:
         sensorModule.registerEvent()

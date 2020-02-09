@@ -7,21 +7,21 @@ import robot.motion.Direction;
 import robot.motion.Route;
 import robot.motion.Speed;
 import robot.motion.Step;
+import robot.sensor.motion.MotionListenerAction;
+import robot.sensor.motion.MotionSensorModule;
 
 import java.util.List;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class MotionListenerAction implements Runnable {
+public class MotionListenerActionImpl implements MotionListenerAction {
 
-    private final Route route;
+    private final MotionSensorModule motionSensorModule;
 
     @Override
     public void run() {
         log.info(" --> Motion detected!");
-        Step stepForward = new Step(Speed.FAST, Direction.FORWARD);
-        List<Step> sequence = List.of(stepForward);
-        route.addSequence(sequence);
+        motionSensorModule.registerEvent();
     }
 }
