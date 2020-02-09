@@ -9,7 +9,7 @@ class SoundListenerActionSpec extends Specification {
     SoundSensorModule soundSensorModule = Mock SoundSensorModule
 
     @Subject
-    SoundListenerActionImpl soundListenerAction = new SoundListenerActionImpl(soundSensorModule)
+    SoundListenerAction soundListenerAction = new SoundListenerActionImpl(soundSensorModule)
 
     def "test run()"() {
         when:

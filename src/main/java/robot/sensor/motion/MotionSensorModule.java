@@ -1,6 +1,7 @@
 package robot.sensor.motion;
 
-public interface MotionSensorModule {
+import robot.sensor.SensorModule;
 
-    void registerEvent();
+public interface MotionSensorModule extends SensorModule {
+
 }

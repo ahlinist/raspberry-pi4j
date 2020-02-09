@@ -9,7 +9,7 @@ class MotionListenerActionSpec extends Specification {
     MotionSensorModule sensorModule = Mock MotionSensorModule
 
     @Subject
-    MotionListenerActionImpl motionListenerAction = new MotionListenerActionImpl(sensorModule)
+    MotionListenerAction motionListenerAction = new MotionListenerActionImpl(sensorModule)
 
     def "test run()"() {
         when:

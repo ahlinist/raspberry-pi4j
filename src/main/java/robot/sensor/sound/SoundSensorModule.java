@@ -1,6 +1,7 @@
 package robot.sensor.sound;
 
-public interface SoundSensorModule {
+import robot.sensor.SensorModule;
 
-    void registerEvent();
+public interface SoundSensorModule extends SensorModule {
+
 }

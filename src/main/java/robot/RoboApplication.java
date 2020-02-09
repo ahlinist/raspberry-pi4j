@@ -7,7 +7,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import robot.chassis.Chassis;
 
 @Slf4j
 @EnableScheduling
@@ -15,7 +14,6 @@ import robot.chassis.Chassis;
 @RequiredArgsConstructor
 public class RoboApplication implements ApplicationRunner {
 
-	private final Chassis chassis;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RoboApplication.class, args);
@@ -24,6 +22,5 @@ public class RoboApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 		log.info("Starting the robo app...");
-		chassis.init();
 	}
 }

@@ -16,11 +16,6 @@ public class MotionProcessorImpl implements MotionProcessor {
     private final TrackController trackController;
 
     @Override
-    public void init() {
-        log.info("Motion processor online");
-    }
-
-    @Override
     public void process() {
         List<Step> sequence = route.nextSequence();
 

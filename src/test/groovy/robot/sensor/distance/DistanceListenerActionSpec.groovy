@@ -1,0 +1,22 @@
+package robot.sensor.distance
+
+import robot.sensor.distance.impl.DistanceListenerActionImpl
+import spock.lang.Specification
+import spock.lang.Subject
+
+class DistanceListenerActionSpec extends Specification {
+
+    DistanceSensorModule sensorModule = Mock DistanceSensorModule
+
+    @Subject
+    DistanceListenerAction distanceListenerAction = new DistanceListenerActionImpl(sensorModule)
+
+    def "test run()"() {
+        when:
+        distanceListenerAction.run()
+
+        then:
+        1 * sensorModule.registerEvent()
+        0 * _
+    }
+}
