@@ -18,7 +18,7 @@ public class DistanceListenerConfiguration {
     private DistanceListenerAction distanceListenerAction;
 
     @Bean
-    public void register() {
+    public void registerDistance() {
         controller.initInput(pinNumber, distanceListenerAction);
     }
 }

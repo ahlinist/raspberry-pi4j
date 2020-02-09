@@ -18,7 +18,7 @@ public class SoundListenerConfiguration {
     private SoundListenerAction soundListenerAction;
 
     @Bean
-    public void register() {
+    public void registerSound() {
         controller.initInput(pinNumber, soundListenerAction);
     }
 }

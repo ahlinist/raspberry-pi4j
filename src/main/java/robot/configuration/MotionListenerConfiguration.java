@@ -18,7 +18,7 @@ public class MotionListenerConfiguration {
     private MotionListenerAction motionListenerAction;
 
     @Bean
-    public void register() {
+    public void registerMotion() {
         controller.initInput(pinNumber, motionListenerAction);
     }
 }
