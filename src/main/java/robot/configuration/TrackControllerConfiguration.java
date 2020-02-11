@@ -1,5 +1,6 @@
 package robot.configuration;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,12 +12,11 @@ import robot.motion.impl.TrackImpl;
 import static robot.configuration.TrackConfigurationProperties.Side;
 
 @Configuration
+@RequiredArgsConstructor
 public class TrackControllerConfiguration {
 
-    @Autowired
-    private TrackConfigurationProperties trackConfiguration;
-    @Autowired
-    private Controller controller;
+    private final TrackConfigurationProperties trackConfiguration;
+    private final Controller controller;
 
     @Bean
     public Track rightTrack() {
