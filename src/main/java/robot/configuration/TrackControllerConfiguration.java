@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import robot.core.Controller;
 import robot.core.Output;
 import robot.motion.Track;
-import robot.motion.TrackController;
-import robot.motion.impl.TrackControllerImpl;
 import robot.motion.impl.TrackImpl;
 
 @Configuration
@@ -37,10 +35,5 @@ public class TrackControllerConfiguration {
         Output leftForwardOutput = controller.initOutput(leftForwardPin);
         Output leftBackwardOutput = controller.initOutput(leftBackwardPin);
         return new TrackImpl(leftForwardOutput, leftBackwardOutput);
-    }
-
-    @Bean
-    public TrackController trackController() {
-        return new TrackControllerImpl(rightTrack(), leftTrack());
     }
 }

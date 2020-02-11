@@ -1,14 +1,21 @@
 package robot.motion.impl;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import robot.motion.Track;
 import robot.motion.TrackController;
 
-@RequiredArgsConstructor
+@Component
 public class TrackControllerImpl implements TrackController {
 
     private final Track rightTrack;
     private final Track leftTrack;
+
+    public TrackControllerImpl(@Qualifier("rightTrack") Track rightTrack,
+                               @Qualifier("leftTrack") Track leftTrack) {
+        this.rightTrack = rightTrack;
+        this.leftTrack = leftTrack;
+    }
 
     @Override
     public void forward() {
