@@ -8,6 +8,8 @@ import robot.core.Output;
 import robot.motion.Track;
 import robot.motion.impl.TrackImpl;
 
+import static robot.configuration.TrackConfigurationProperties.Side
+
 @Configuration
 public class TrackControllerConfiguration {
 
@@ -18,7 +20,7 @@ public class TrackControllerConfiguration {
 
     @Bean
     public Track rightTrack() {
-        TrackConfigurationProperties.Side right = trackConfiguration.getRight();
+        Side right = trackConfiguration.getRight();
         Output rightForwardOutput = controller.initOutput(right.getFront());
         Output rightBackwardOutput = controller.initOutput(right.getRear());
         return new TrackImpl(rightForwardOutput, rightBackwardOutput);
@@ -26,7 +28,7 @@ public class TrackControllerConfiguration {
 
     @Bean
     public Track leftTrack() {
-        TrackConfigurationProperties.Side left = trackConfiguration.getLeft();
+        Side left = trackConfiguration.getLeft();
         Output leftForwardOutput = controller.initOutput(left.getFront());
         Output leftBackwardOutput = controller.initOutput(left.getRear());
         return new TrackImpl(leftForwardOutput, leftBackwardOutput);

@@ -10,7 +10,12 @@ import robot.core.Controller
 import spock.lang.Specification
 
 @SpringBootTest
-@ContextConfiguration(classes = [RoboApplication, ControllerTestConfiguration, TrackControllerConfiguration, TrackConfigurationProperties])
+@ContextConfiguration(classes = [
+        RoboApplication,
+        ControllerTestConfiguration,
+        TrackControllerConfiguration,
+        TrackConfigurationProperties
+])
 class RoboApplicationTest extends Specification {
 
     @Autowired
