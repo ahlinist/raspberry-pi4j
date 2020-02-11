@@ -8,7 +8,7 @@ import robot.core.Output;
 import robot.motion.Track;
 import robot.motion.impl.TrackImpl;
 
-import static robot.configuration.TrackConfigurationProperties.Side
+import static robot.configuration.TrackConfigurationProperties.Side;
 
 @Configuration
 public class TrackControllerConfiguration {
