@@ -16,13 +16,10 @@ sensor:
 
 motion:
   track:
-    right:
-      forward:
-        pin: 3
-      backward:
-        pin: 4
-    left:
-      forward:
-        pin: 5
-      backward:
-        pin: 6
+    pin:
+      right:
+        front: 3
+        rear: 4
+      left:
+        front: 5
+        rear: 6

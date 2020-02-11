@@ -1,7 +1,6 @@
 package robot.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import robot.core.Controller;
@@ -12,28 +11,24 @@ import robot.motion.impl.TrackImpl;
 @Configuration
 public class TrackControllerConfiguration {
 
-    @Value("${motion.track.right.forward.pin}")
-    private int rightForwardPin;
-    @Value("${motion.track.right.backward.pin}")
-    private int rightBackwardPin;
-    @Value("${motion.track.left.forward.pin}")
-    private int leftForwardPin;
-    @Value("${motion.track.left.backward.pin}")
-    private int leftBackwardPin;
+    @Autowired
+    private TrackConfigurationProperties trackConfiguration;
     @Autowired
     private Controller controller;
 
     @Bean
     public Track rightTrack() {
-        Output rightForwardOutput = controller.initOutput(rightForwardPin);
-        Output rightBackwardOutput = controller.initOutput(rightBackwardPin);
+        TrackConfigurationProperties.Side right = trackConfiguration.getRight();
+        Output rightForwardOutput = controller.initOutput(right.getFront());
+        Output rightBackwardOutput = controller.initOutput(right.getRear());
         return new TrackImpl(rightForwardOutput, rightBackwardOutput);
     }
 
     @Bean
     public Track leftTrack() {
-        Output leftForwardOutput = controller.initOutput(leftForwardPin);
-        Output leftBackwardOutput = controller.initOutput(leftBackwardPin);
+        TrackConfigurationProperties.Side left = trackConfiguration.getLeft();
+        Output leftForwardOutput = controller.initOutput(left.getFront());
+        Output leftBackwardOutput = controller.initOutput(left.getRear());
         return new TrackImpl(leftForwardOutput, leftBackwardOutput);
     }
 }
