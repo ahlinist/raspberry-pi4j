@@ -1,17 +1,25 @@
 package robot.sensor.distance.impl;
 
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import robot.sensor.distance.DistanceListenerAction;
 import robot.sensor.distance.DistanceSensorModule;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class DistanceListenerActionImpl implements DistanceListenerAction {
 
+    @Getter
+    private final int pin;
     private final DistanceSensorModule distanceSensorModule;
+
+    public DistanceListenerActionImpl(@Value("${sensor.distance.pin}") int pin,
+                                      DistanceSensorModule distanceSensorModule) {
+        this.pin = pin;
+        this.distanceSensorModule = distanceSensorModule;
+    }
 
     @Override
     public void run() {

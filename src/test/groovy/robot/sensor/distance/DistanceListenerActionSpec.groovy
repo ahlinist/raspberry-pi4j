@@ -9,7 +9,7 @@ class DistanceListenerActionSpec extends Specification {
     DistanceSensorModule sensorModule = Mock DistanceSensorModule
 
     @Subject
-    DistanceListenerAction distanceListenerAction = new DistanceListenerActionImpl(sensorModule)
+    DistanceListenerAction distanceListenerAction = new DistanceListenerActionImpl(1, sensorModule)
 
     def "test run()"() {
         when:

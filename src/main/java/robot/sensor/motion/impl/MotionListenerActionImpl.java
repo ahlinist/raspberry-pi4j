@@ -1,23 +1,25 @@
 package robot.sensor.motion.impl;
 
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import robot.motion.Direction;
-import robot.motion.Route;
-import robot.motion.Speed;
-import robot.motion.Step;
 import robot.sensor.motion.MotionListenerAction;
 import robot.sensor.motion.MotionSensorModule;
 
-import java.util.List;
-
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class MotionListenerActionImpl implements MotionListenerAction {
 
+    @Getter
+    private final int pin;
     private final MotionSensorModule motionSensorModule;
+
+    public MotionListenerActionImpl(@Value("${sensor.motion.pin}") int pin,
+                                    MotionSensorModule motionSensorModule) {
+        this.pin = pin;
+        this.motionSensorModule = motionSensorModule;
+    }
 
     @Override
     public void run() {

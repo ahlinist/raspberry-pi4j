@@ -1,5 +1,7 @@
 package robot.sensor.motion;
 
-public interface MotionListenerAction extends Runnable {
+import robot.sensor.ListenerAction;
+
+public interface MotionListenerAction extends ListenerAction {
     
 }

@@ -1,5 +1,7 @@
 package robot.sensor.sound;
 
-public interface SoundListenerAction extends Runnable {
+import robot.sensor.ListenerAction;
+
+public interface SoundListenerAction extends ListenerAction {
 
 }
